@@ -9,8 +9,6 @@ require 'json'
 Dotenv.load
 
 class Runner
-  VALIDATOR = '0xf8efb4cb844a8458114994203d7b0bfe2422a288'
-
   def initialize
     @logger = Logger.new($stdout)
     @logger.level = Logger::INFO
@@ -28,7 +26,7 @@ class Runner
   private
 
   def jailed?
-    node = validators_data.detect { |data| data['validator'] == VALIDATOR }
+    node = validators_data.detect { |data| data['validator'] == ENV['VALIDATOR'] }
 
     return false unless node
 
