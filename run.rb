@@ -67,10 +67,5 @@ class Runner
   end
 end
 
-loop do
-  runner = Runner.new
-  runner.run
-
-  # Check 5x per minute
-  sleep 12
-end
+runner = Runner.new
+runner.run
