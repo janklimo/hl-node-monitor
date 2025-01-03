@@ -64,7 +64,7 @@ class Runner
   end
 
   def validators_data
-    url = 'https://api.hyperliquid-testnet.xyz/info'
+    url = 'https://api.hyperliquid.xyz/info'
     headers = { 'Content-Type' => 'application/json' }
     body = { type: 'validatorSummaries' }.to_json
     @logger.debug "Fetching validators data from #{url}"
@@ -80,7 +80,7 @@ class Runner
 
   def execute_unjail_command
     key = ENV['KEY']
-    command = "~/hl-node --chain Testnet --key #{key} send-signed-action '{\"type\": \"CSignerAction\", \"unjailSelf\": null}'"
+    command = "~/hl-node --chain Mainnet --key #{key} send-signed-action '{\"type\": \"CSignerAction\", \"unjailSelf\": null}'"
     begin
       @logger.info 'Executing unjail command...'
       stdout, stderr, status = Open3.capture3(command)
